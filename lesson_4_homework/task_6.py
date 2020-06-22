@@ -8,4 +8,33 @@
 Во втором также необходимо предусмотреть условие, при котором повторение элементов списка будет прекращено.
 """
 from sys import argv
+from itertools import count, cycle
 
+tools = argv[1]
+
+if tools == 'a':
+    try:
+        numb_count = argv[2]
+        user_list = []
+        for el in count(int(numb_count)):
+            if el > 15:
+                break
+            else:
+                user_list.append(el)
+        print(user_list)
+    except IndexError:
+        print('Нет параметра')
+
+if tools == 'b':
+    try:
+        numb_cycle = argv[2]
+        user_list = []
+        cyc_count = 0
+        for el in cycle('123'):
+            if cyc_count > int(numb_cycle):
+                break
+            user_list.append(el)
+            cyc_count += 1
+        print(user_list)
+    except IndexError:
+        print('Нет параметра')
