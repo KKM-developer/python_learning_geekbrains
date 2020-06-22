@@ -6,3 +6,16 @@
 выводить только первые n чисел, начиная с 1! и до n!.
 Подсказка: факториал числа n — произведение чисел от 1 до n. Например, факториал четырёх 4! = 1 * 2 * 3 * 4 = 24
 """
+
+from math import factorial
+
+def fact(n):
+    for numb in range(1, n + 1):
+        yield factorial(numb)
+
+user_inp = input('Введите конец расчета ')
+
+for el in fact(int(user_inp)):
+    print(el)
+
+
