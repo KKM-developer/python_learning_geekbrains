@@ -14,4 +14,21 @@
 Подсказка: использовать менеджеры контекста.
 '''
 
-#TODO
+import json
+
+result = {}
+with open('task_7.txt', 'r', encoding='UTF-8') as file:
+    for line in file:
+        key, _, *value = line.split()
+        result[key] = value
+profit = {'average_profit': 0}
+total = {}
+for key in result:
+    total[key] = int(result[key][0]) - int(result[key][1])
+for key, value in total.items():
+    profit['average_profit'] += int(value)
+
+with open('task_7_result.json', 'w', encoding='UTF-8') as res_file:
+    json.dump(total, res_file)
+    json.dump(', ', res_file)
+    json.dump(profit, res_file)
