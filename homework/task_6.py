@@ -13,4 +13,21 @@
 {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
 '''
 
-#TODO
+result = {}
+with open('task_6.txt', 'r', encoding='UTF-8') as file:
+    for line in file:
+        key, *value = line.split()
+        result[key] = value
+
+for key in result:
+    les_time = 0
+    for value in result[key]:
+        if value.isdigit():
+            les_time += int(value)
+    result[key] = les_time
+print(result)
+
+
+
+
+
